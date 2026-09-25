@@ -1,8 +1,8 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"main": ".open-next/worker.js",
-	"name": "snow-removal-website",
-	"compatibility_date": "2026-09-26",
+	"name": "snow-removal",
+	"compatibility_date": "2024-09-23",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
 	"assets": {
 		"directory": ".open-next/assets",
