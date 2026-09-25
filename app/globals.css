@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
+/*
+ * Design tokens (Section 10 of the brief): deep winter navy/slate base,
+ * crisp white space, one high-contrast accent reserved for CTAs.
+ * Accent shades are chosen to keep white-text CTA buttons at or above
+ * WCAG AA contrast (4.5:1).
+ */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #101826;
+
+  --color-navy-950: #0a1220;
+  --color-navy-900: #0f1c30;
+  --color-navy-800: #16283f;
+  --color-navy-700: #223a58;
+
+  --color-slate-600: #47566b;
+  --color-slate-500: #64748b;
+
+  --color-fog-100: #f4f6f8;
+  --color-line-200: #e2e6ea;
+
+  /* ea580c was the original pick but only hits 3.54:1 against white —
+     Lighthouse caught it failing WCAG AA (4.5:1) on every CTA button.
+     c2410c measures ~5.3:1 and 9a3412 ~7.4:1, so the accent scale now
+     actually meets the contrast comment above instead of just claiming to. */
+  --color-accent-600: #c2410c;
+  --color-accent-700: #9a3412;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-700: var(--color-navy-700);
+
+  --color-slate-600: var(--color-slate-600);
+  --color-slate-500: var(--color-slate-500);
+
+  --color-fog-100: var(--color-fog-100);
+  --color-line-200: var(--color-line-200);
+
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
