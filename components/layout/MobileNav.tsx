@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { business } from "@/config/business";
 import { NavLink } from "@/components/layout/NavLink";
 
@@ -9,6 +9,17 @@ type NavItem = { label: string; href: string };
 export function MobileNav({ navLinks }: { navLinks: NavItem[] }) {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+
+  // Lock body scroll while the dropdown is open so the page behind it
+  // doesn't scroll along with it.
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
 
   return (
     <div className="relative lg:hidden">
@@ -31,15 +42,15 @@ export function MobileNav({ navLinks }: { navLinks: NavItem[] }) {
       {open && (
         <nav
           aria-label="Primary mobile"
-          className="absolute right-0 top-full mt-2 w-56 rounded-lg border border-line-200 bg-white p-2 shadow-lg"
+          className="absolute right-0 top-full mt-2 w-72 rounded-lg border border-line-200 bg-white p-3 shadow-lg"
         >
-          <ul className="flex flex-col text-sm font-medium text-navy-900">
+          <ul className="flex flex-col gap-1 text-base font-medium text-navy-900">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <NavLink
                   href={link.href}
-                  className="block rounded-md px-3 py-2 hover:bg-fog-100"
-                  activeClassName="block rounded-md bg-fog-100 px-3 py-2 font-semibold text-accent-700"
+                  className="block rounded-md px-4 py-3 hover:bg-fog-100"
+                  activeClassName="block rounded-md bg-fog-100 px-4 py-3 font-semibold text-accent-700"
                   onClick={close}
                 >
                   {link.label}
@@ -50,7 +61,7 @@ export function MobileNav({ navLinks }: { navLinks: NavItem[] }) {
               <a
                 href={`tel:${business.phoneHref}`}
                 onClick={close}
-                className="mt-1 block rounded-md bg-accent-600 px-3 py-2 text-center font-semibold text-white"
+                className="mt-1 block rounded-md bg-accent-600 px-4 py-3 text-center font-semibold text-white"
               >
                 Call {business.phone}
               </a>
