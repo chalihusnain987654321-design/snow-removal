@@ -6,8 +6,11 @@ import type { ReactNode } from "react";
 
 // Nav items link to section roots (e.g. "/locations/"), so a link is
 // "active" for its whole subtree (e.g. /locations/michigan/detroit/),
-// not just an exact path match.
+// not just an exact path match. "/" is the one href every path starts
+// with, so it needs an exact match instead or "Home" would light up
+// on every page.
 function isActivePath(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(href);
 }
 

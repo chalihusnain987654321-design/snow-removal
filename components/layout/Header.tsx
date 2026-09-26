@@ -6,6 +6,7 @@ import { NavLink } from "@/components/layout/NavLink";
 import { MobileNav } from "@/components/layout/MobileNav";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services/" },
   { label: "Locations", href: "/locations/" },
   { label: "Commercial", href: "/commercial/" },
