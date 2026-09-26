@@ -161,10 +161,7 @@ export default async function CityPage({
           ]}
         />
         <div className="mt-6 grid items-center gap-10 lg:grid-cols-2">
-          <div className="lg:order-2">
-            <QuoteForm compact />
-          </div>
-          <div className="lg:order-1">
+          <div>
             <h1 className="font-heading text-4xl font-extrabold text-navy-950">
               Snow Removal in {city.name}, {state.abbr}
             </h1>
@@ -178,6 +175,9 @@ export default async function CityPage({
               </Button>
             </div>
             <p className="mt-6 max-w-2xl text-slate-600">{introParagraph(ctx)}</p>
+          </div>
+          <div>
+            <QuoteForm compact />
           </div>
         </div>
       </Section>

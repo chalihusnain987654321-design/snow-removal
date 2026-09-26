@@ -88,10 +88,7 @@ export default async function StatePage({
           ]}
         />
         <div className="mt-6 grid items-center gap-10 lg:grid-cols-2">
-          <div className="lg:order-2">
-            <QuoteForm compact />
-          </div>
-          <div className="lg:order-1">
+          <div>
             <h1 className="font-heading text-4xl font-extrabold leading-tight sm:text-5xl">
               Snow Removal Services in {state.name}
             </h1>
@@ -110,6 +107,9 @@ export default async function StatePage({
                 <StatCard label="Cities served" value={String(cities.length)} />
               </div>
             )}
+          </div>
+          <div>
+            <QuoteForm compact />
           </div>
         </div>
       </Section>

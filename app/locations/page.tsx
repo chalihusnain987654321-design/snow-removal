@@ -21,10 +21,7 @@ export default function LocationsHubPage() {
       <Section tone="navy" className="pb-14 pt-10 sm:pb-20">
         <Breadcrumbs tone="dark" items={[{ label: "Home", href: "/" }, { label: "Locations" }]} />
         <div className="mt-6 grid items-center gap-10 lg:grid-cols-2">
-          <div className="lg:order-2">
-            <QuoteForm compact />
-          </div>
-          <div className="lg:order-1">
+          <div>
             <h1 className="font-heading text-4xl font-extrabold leading-tight sm:text-5xl">Where we work</h1>
             <p className="mt-4 max-w-2xl text-lg text-slate-300">
               Service areas across the snowbelt. Select a state to see local coverage, or find your
@@ -35,6 +32,9 @@ export default function LocationsHubPage() {
               <StatCard label="Cities served" value={String(cities.length)} />
               <StatCard label="Dispatch" value="24/7" />
             </div>
+          </div>
+          <div>
+            <QuoteForm compact />
           </div>
         </div>
       </Section>
