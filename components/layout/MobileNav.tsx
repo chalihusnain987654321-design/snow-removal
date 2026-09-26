@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { business } from "@/config/business";
 import { NavLink } from "@/components/layout/NavLink";
 
@@ -40,34 +41,40 @@ export function MobileNav({ navLinks }: { navLinks: NavItem[] }) {
       </button>
 
       {open && (
-        <nav
-          aria-label="Primary mobile"
-          className="absolute right-0 top-full mt-2 w-72 rounded-lg border border-line-200 bg-white p-3 shadow-lg"
-        >
-          <ul className="flex flex-col gap-1 text-base font-medium text-navy-900">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <NavLink
-                  href={link.href}
-                  className="block rounded-md px-4 py-3 hover:bg-fog-100"
-                  activeClassName="block rounded-md bg-fog-100 px-4 py-3 font-semibold text-accent-700"
+        <>
+          {createPortal(
+            <div aria-hidden="true" onClick={close} className="fixed inset-0 z-40 bg-navy-950/60" />,
+            document.body,
+          )}
+          <nav
+            aria-label="Primary mobile"
+            className="absolute right-0 top-full mt-2 w-72 rounded-lg border border-line-200 bg-white p-3 shadow-lg"
+          >
+            <ul className="flex flex-col gap-1 text-base font-medium text-navy-900">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <NavLink
+                    href={link.href}
+                    className="block rounded-md px-4 py-3 hover:bg-fog-100"
+                    activeClassName="block rounded-md bg-fog-100 px-4 py-3 font-semibold text-accent-700"
+                    onClick={close}
+                  >
+                    {link.label}
+                  </NavLink>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={`tel:${business.phoneHref}`}
                   onClick={close}
+                  className="mt-1 block rounded-md bg-accent-600 px-4 py-3 text-center font-semibold text-white"
                 >
-                  {link.label}
-                </NavLink>
+                  Call {business.phone}
+                </a>
               </li>
-            ))}
-            <li>
-              <a
-                href={`tel:${business.phoneHref}`}
-                onClick={close}
-                className="mt-1 block rounded-md bg-accent-600 px-4 py-3 text-center font-semibold text-white"
-              >
-                Call {business.phone}
-              </a>
-            </li>
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        </>
       )}
     </div>
   );
