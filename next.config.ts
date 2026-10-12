@@ -16,7 +16,20 @@ const nextConfig: NextConfig = {
   // changes, so old indexed URLs don't 404 (brief, Section 6). Example:
   // { source: "/locations/michigan/grand-rapids-mi/", destination: "/locations/michigan/grand-rapids/", permanent: true }
   async redirects() {
-    return [];
+    return [
+      // www.snowfreewinter.com and snowfreewinter.com are both connected
+      // as Custom Domains on the Worker and serve identical content —
+      // canonicalize on the bare domain (matches siteUrl in
+      // config/business.ts) so search engines don't see it as
+      // duplicate content. Scoped to this exact host, so it's a no-op
+      // on localhost/staging/preview deployments.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.snowfreewinter.com" }],
+        destination: "https://snowfreewinter.com/:path*",
+        permanent: true,
+      },
+    ];
   },
 };
 

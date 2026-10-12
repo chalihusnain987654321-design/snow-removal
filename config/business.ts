@@ -48,5 +48,5 @@ export const business: BusinessConfig = {
     instagram: null,
     google: null,
   },
-  siteUrl: "{{SITE_URL}}",
+  siteUrl: "https://snowfreewinter.com",
 };
