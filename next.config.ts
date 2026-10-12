@@ -23,10 +23,22 @@ const nextConfig: NextConfig = {
       // config/business.ts) so search engines don't see it as
       // duplicate content. Scoped to this exact host, so it's a no-op
       // on localhost/staging/preview deployments.
+      //
+      // Split into two rules rather than one "/:path*" (zero-or-more):
+      // confirmed live that a zero-segment match left the literal
+      // ":path*" placeholder in the destination instead of substituting
+      // an empty string, redirecting www.snowfreewinter.com/ itself to
+      // an invalid URL. "/:path+" (one-or-more) doesn't hit that case.
       {
-        source: "/:path*",
+        source: "/",
         has: [{ type: "host", value: "www.snowfreewinter.com" }],
-        destination: "https://snowfreewinter.com/:path*",
+        destination: "https://snowfreewinter.com/",
+        permanent: true,
+      },
+      {
+        source: "/:path+",
+        has: [{ type: "host", value: "www.snowfreewinter.com" }],
+        destination: "https://snowfreewinter.com/:path+",
         permanent: true,
       },
     ];
