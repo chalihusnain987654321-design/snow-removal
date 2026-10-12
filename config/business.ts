@@ -11,8 +11,6 @@ export type BusinessConfig = {
   legalName: string;
   phone: string; // display format, e.g. "(555) 123-4567"
   phoneHref: string; // tel: format, e.g. "+15551234567"
-  email: string;
-  bookingEmail: string;
   address: {
     street: string;
     city: string;
@@ -32,17 +30,15 @@ export type BusinessConfig = {
 };
 
 export const business: BusinessConfig = {
-  name: "{{BUSINESS_NAME}}",
-  legalName: "{{BUSINESS_LEGAL_NAME}}",
+  name: "SnowFreeWinter",
+  legalName: "Snow Free Winter",
   phone: "{{BUSINESS_PHONE}}",
   phoneHref: "{{BUSINESS_PHONE_HREF}}",
-  email: "{{BUSINESS_EMAIL}}",
-  bookingEmail: "{{BUSINESS_BOOKING_EMAIL}}",
   address: null,
   hours: "24/7 dispatch during active snow events",
   foundingYear: null,
   licenseText: null,
-  responseTimePromise: "Response within {{RESPONSE_HOURS}} hours during a storm",
+  responseTimePromise: "Response within 1 hour during a storm",
   socialProfiles: {
     facebook: null,
     instagram: null,

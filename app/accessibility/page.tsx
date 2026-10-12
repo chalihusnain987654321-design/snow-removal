@@ -45,11 +45,7 @@ export default function AccessibilityPage() {
         <section>
           <h2 className="font-heading text-xl font-bold text-navy-950">Contact</h2>
           <p className="mt-2">
-            Report an accessibility issue at{" "}
-            <a href={`mailto:${business.email}`} className="text-accent-700 underline hover:text-accent-600">
-              {business.email}
-            </a>{" "}
-            or by phone at {business.phone}.
+            Report an accessibility issue by phone at {business.phone}.
           </p>
         </section>
       </div>

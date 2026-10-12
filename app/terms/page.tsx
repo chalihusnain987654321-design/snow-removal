@@ -24,7 +24,7 @@ export default function TermsPage() {
       </div>
 
       <div className="prose prose-slate mt-8 max-w-3xl space-y-6 text-slate-700">
-        <p>Last updated: {"{{LAST_UPDATED_DATE}}"}</p>
+        <p>Last updated: 13 Oct 2026</p>
 
         <section>
           <h2 className="font-heading text-xl font-bold text-navy-950">Use of this website</h2>
@@ -63,11 +63,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-heading text-xl font-bold text-navy-950">Contact</h2>
           <p className="mt-2">
-            Questions about these terms can be sent to{" "}
-            <a href={`mailto:${business.email}`} className="text-accent-700 underline hover:text-accent-600">
-              {business.email}
-            </a>
-            .
+            Questions about these terms can be sent to us by phone at {business.phone}.
           </p>
         </section>
       </div>

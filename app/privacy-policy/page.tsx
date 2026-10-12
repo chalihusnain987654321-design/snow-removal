@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
       </div>
 
       <div className="prose prose-slate mt-8 max-w-3xl space-y-6 text-slate-700">
-        <p>Last updated: {"{{LAST_UPDATED_DATE}}"}</p>
+        <p>Last updated: 13 Oct 2026</p>
 
         <section>
           <h2 className="font-heading text-xl font-bold text-navy-950">Information we collect</h2>
@@ -64,22 +64,15 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 className="font-heading text-xl font-bold text-navy-950">Your choices</h2>
           <p className="mt-2">
-            To request that we delete your information or stop contacting you, email{" "}
-            <a href={`mailto:${business.email}`} className="text-accent-700 underline hover:text-accent-600">
-              {business.email}
-            </a>
-            .
+            To request that we delete your information or stop contacting you, call us at{" "}
+            {business.phone}.
           </p>
         </section>
 
         <section>
           <h2 className="font-heading text-xl font-bold text-navy-950">Contact</h2>
           <p className="mt-2">
-            Questions about this policy can be sent to{" "}
-            <a href={`mailto:${business.email}`} className="text-accent-700 underline hover:text-accent-600">
-              {business.email}
-            </a>
-            .
+            Questions about this policy can be sent to us by phone at {business.phone}.
           </p>
         </section>
       </div>

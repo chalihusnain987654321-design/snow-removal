@@ -53,7 +53,6 @@ export function localBusinessSchema() {
     name: business.name,
     url: SITE_URL,
     telephone: business.phone,
-    email: business.email,
     areaServed,
     ...(business.address
       ? {

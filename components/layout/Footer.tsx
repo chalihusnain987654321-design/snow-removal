@@ -30,11 +30,6 @@ export function Footer() {
               {business.phone}
             </a>
           </p>
-          <p className="mt-1 text-sm">
-            <a href={`mailto:${business.email}`} className="hover:underline">
-              {business.email}
-            </a>
-          </p>
           {business.licenseText && <p className="mt-3 text-xs text-slate-400">{business.licenseText}</p>}
         </div>
 

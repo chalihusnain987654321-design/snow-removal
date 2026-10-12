@@ -3,7 +3,7 @@
 // <form> posting to /api/quote/, which is why the container/spacing below
 // still matches that card so every existing placement keeps its layout.
 // That endpoint (and lib/email, lib/rate-limit, /quote-error, /thank-you)
-// is left in place but nothing posts to it anymore.
+// has since been deleted — nothing posted to it anymore.
 export function QuoteForm({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`rounded-lg border border-line-200 bg-white ${compact ? "p-4" : "p-4 sm:p-6"}`}>

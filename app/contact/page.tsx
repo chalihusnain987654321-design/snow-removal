@@ -8,7 +8,7 @@ import { PhoneIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact ${business.name} for a snow removal quote: phone, email, and a request form.`,
+  description: `Contact ${business.name} for a snow removal quote: phone or a request form.`,
   alternates: { canonical: "/contact/" },
 };
 
@@ -35,13 +35,6 @@ export default function ContactPage() {
               <div className="font-heading text-lg font-semibold text-navy-950">{business.phone}</div>
             </div>
           </a>
-
-          <div className="rounded-lg border border-line-200 bg-white p-5">
-            <div className="text-sm text-slate-500">Email</div>
-            <a href={`mailto:${business.email}`} className="font-medium text-navy-950 hover:underline">
-              {business.email}
-            </a>
-          </div>
 
           <div className="rounded-lg border border-line-200 bg-white p-5">
             <div className="text-sm text-slate-500">Hours</div>
