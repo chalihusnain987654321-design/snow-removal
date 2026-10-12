@@ -1,7 +1,9 @@
-// GA4 and Search Console are opt-in via env vars — the site works
-// fully without them configured (Analytics/ConsentBanner render
-// nothing until a measurement ID is set). See .env.example.
+// Search Console verification is opt-in via an env var (see
+// .env.example). The GTM container ID is a real, already-created
+// container (tagmanager.google.com) rather than a per-environment
+// value, so it's a plain constant here — GA4 and any other tags are
+// configured inside that GTM container, not in this codebase.
 export const analyticsConfig = {
-  gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? null,
+  gtmContainerId: "GTM-KG6TNKJC",
   googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION ?? null,
 };

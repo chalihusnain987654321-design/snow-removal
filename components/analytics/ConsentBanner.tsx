@@ -30,7 +30,7 @@ function getServerSnapshot(): Consent {
   return "unset";
 }
 
-// Only rendered when GA4 is actually configured — no analytics, no banner.
+// Only rendered when GTM is actually configured — no analytics, no banner.
 export function ConsentBanner() {
   const consent = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
@@ -49,7 +49,7 @@ export function ConsentBanner() {
     window.dispatchEvent(new Event("storage"));
   }
 
-  if (!analyticsConfig.gaMeasurementId || consent !== "unset") return null;
+  if (!analyticsConfig.gtmContainerId || consent !== "unset") return null;
 
   return (
     <div className="fixed inset-x-4 bottom-20 z-50 rounded-lg border border-line-200 bg-white p-4 shadow-lg sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-sm">

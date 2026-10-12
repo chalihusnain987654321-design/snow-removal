@@ -17,7 +17,7 @@ Nothing in `.env.local` is required for the site to build or run.
 Each integration no-ops until its variable is set:
 
 - `RESEND_API_KEY` — without it, the quote form correctly fails closed and sends visitors to `/quote-error/` instead of silently losing leads.
-- `NEXT_PUBLIC_GA_MEASUREMENT_ID` — without it, no analytics script loads and no consent banner shows.
+- Google Tag Manager is wired up with a real container ID in `config/analytics.ts` (`gtmContainerId`) — configure GA4 and any other tags inside that GTM container (tagmanager.google.com), not in this codebase.
 - `GOOGLE_SITE_VERIFICATION` — without it, no verification meta tag is emitted.
 
 Also fill in `config/business.ts` — every `{{PLACEHOLDER}}` value there

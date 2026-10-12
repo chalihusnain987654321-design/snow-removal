@@ -1,24 +1,20 @@
 import Script from "next/script";
 import { analyticsConfig } from "@/config/analytics";
 
-// GA4 loaded via next/script with strategy="afterInteractive" (brief
-// Section 2), with Google Consent Mode v2 defaulted to denied until
-// the visitor accepts via ConsentBanner. Renders nothing if no
-// measurement ID is configured.
+// Google Tag Manager loaded via next/script with strategy="afterInteractive",
+// with Google Consent Mode v2 defaulted to denied until the visitor
+// accepts via ConsentBanner — the consent default is pushed to
+// dataLayer before the GTM container script loads, so any
+// Consent-Mode-aware tag configured inside that container (GA4, Ads,
+// etc.) stays gated until acceptance. GA4 and other tags are
+// configured in the GTM container itself (tagmanager.google.com), not
+// in this codebase. Renders nothing if no container ID is configured.
 export function Analytics() {
-  const gaId = analyticsConfig.gaMeasurementId;
-  if (!gaId) return null;
+  const gtmId = analyticsConfig.gtmContainerId;
+  if (!gtmId) return null;
 
   return (
     <>
-      {/*
-        Consent default + gtag.js load + config all use afterInteractive
-        and rely on script execution following document order, so
-        consent is still set before the config call fires — no
-        first-party ad pixels here that would need the stricter
-        beforeInteractive guarantee (which Next only supports directly
-        in the root layout, not a nested component).
-      */}
       <Script id="consent-mode-default" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -31,9 +27,14 @@ export function Analytics() {
           });
         `}
       </Script>
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {`gtag('js', new Date()); gtag('config', '${gaId}');`}
+      <Script id="gtm-init" strategy="afterInteractive">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${gtmId}');
+        `}
       </Script>
     </>
   );

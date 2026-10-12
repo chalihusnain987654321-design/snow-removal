@@ -12,7 +12,7 @@ guideline violation risks the entire domain, not just one listing.
 
 - [ ] Fill in every `{{PLACEHOLDER}}` in `config/business.ts` with real values
 - [ ] Set `RESEND_API_KEY` so quote requests actually send (test one end-to-end before announcing the site)
-- [ ] Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` if you want analytics
+- [ ] Configure GA4 (and any other tags) inside the GTM container at tagmanager.google.com — the container ID is already wired up in `config/analytics.ts`
 - [ ] Verify the domain in Google Search Console, set `GOOGLE_SITE_VERIFICATION`
 - [ ] Submit the sitemap files to Search Console and Bing Webmaster Tools (`/sitemap/0.xml` through `/sitemap/4.xml` — see `robots.txt` for the full list; there's no single `/sitemap.xml` index, submit each one)
 - [ ] Have an attorney review `/terms/` and `/privacy-policy/` before publishing — both currently contain a visible "template, not legal advice" notice and are marked `noindex` until replaced with real reviewed terms

@@ -1,5 +1,5 @@
-// Shared gtag helpers. Every call is a no-op if GA4 isn't configured
-// (no NEXT_PUBLIC_GA_MEASUREMENT_ID) or gtag hasn't loaded yet.
+// Shared gtag helpers. Every call is a no-op if GTM isn't configured
+// (no container ID in config/analytics.ts) or gtag hasn't loaded yet.
 
 declare global {
   interface Window {
