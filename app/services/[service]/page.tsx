@@ -62,22 +62,26 @@ export default async function ServiceDetailPage({
             { label: service.name },
           ]}
         />
-        <div className="mt-4 flex items-center gap-4">
-          <span className="flex size-14 shrink-0 items-center justify-center rounded-lg bg-navy-950 text-white">
-            <ServiceIconGlyph icon={service.icon} className="size-7" />
-          </span>
+        <div className="mt-6 grid items-start gap-10 lg:grid-cols-2">
           <div>
-            <h1 className="font-heading text-4xl font-extrabold text-navy-950">{service.name}</h1>
-            <p className="mt-1 text-slate-600">{audienceLabel[service.audience]}</p>
+            <div className="flex items-center gap-4">
+              <span className="flex size-14 shrink-0 items-center justify-center rounded-lg bg-navy-950 text-white">
+                <ServiceIconGlyph icon={service.icon} className="size-7" />
+              </span>
+              <div>
+                <h1 className="font-heading text-4xl font-extrabold text-navy-950">{service.name}</h1>
+                <p className="mt-1 text-slate-600">{audienceLabel[service.audience]}</p>
+              </div>
+            </div>
+            <div className="mt-6 space-y-4 text-slate-700">
+              {paragraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="mt-6 max-w-3xl space-y-4 text-slate-700">
-          {paragraphs.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-        </div>
-        <div className="mt-6 flex aspect-video max-w-3xl items-center justify-center rounded-lg border border-dashed border-line-200 bg-fog-100 text-sm text-slate-600">
-          TODO: replace with a real {service.name.toLowerCase()} photo
+          <div className="flex aspect-video items-center justify-center rounded-lg border border-dashed border-line-200 bg-fog-100 text-sm text-slate-600">
+            TODO: replace with a real {service.name.toLowerCase()} photo
+          </div>
         </div>
       </Section>
 
