@@ -1,20 +1,24 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 
-// Next.js's generateSitemaps() (see app/sitemap.ts) produces
-// /sitemap/0.xml..4.xml directly — there's no automatic /sitemap.xml
-// index file, so each split sitemap is listed here instead. Multiple
-// `Sitemap:` lines in robots.txt is valid per the spec and is how
-// Google and Bing expect a split sitemap set to be discovered.
-const SITEMAP_COUNT = 5;
+// Each category has its own sitemap.ts in its own folder (app/pages,
+// app/states, app/cities, app/services, app/blog) rather than one
+// shared generateSitemaps() file, so the URLs read /pages/sitemap.xml,
+// /states/sitemap.xml, etc. There's no single index file — Next.js
+// reserves /sitemap.xml as a conflicting path with the sitemap
+// metadata convention (confirmed: a manual route there fails the
+// build) — so each is listed individually. Multiple `Sitemap:` lines
+// in robots.txt is valid per the sitemap protocol and is how
+// Google/Bing expect a split sitemap set to be discovered.
+const SITEMAP_CATEGORIES = ["pages", "states", "cities", "services", "blog"] as const;
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/search/", "/api/"],
+      disallow: "/search/",
     },
-    sitemap: Array.from({ length: SITEMAP_COUNT }, (_, id) => `${SITE_URL}/sitemap/${id}.xml`),
+    sitemap: SITEMAP_CATEGORIES.map((category) => `${SITE_URL}/${category}/sitemap.xml`),
   };
 }

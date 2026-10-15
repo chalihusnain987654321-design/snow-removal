@@ -32,8 +32,8 @@ export type BusinessConfig = {
 export const business: BusinessConfig = {
   name: "SnowFreeWinter",
   legalName: "Snow Free Winter",
-  phone: "{{BUSINESS_PHONE}}",
-  phoneHref: "{{BUSINESS_PHONE_HREF}}",
+  phone: "877-460-5915",
+  phoneHref: "+18774605915",
   address: null,
   hours: "24/7 dispatch during active snow events",
   foundingYear: null,
