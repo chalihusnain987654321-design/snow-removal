@@ -76,6 +76,9 @@ export default async function ServiceDetailPage({
             <p key={index}>{paragraph}</p>
           ))}
         </div>
+        <div className="mt-6 flex aspect-video max-w-3xl items-center justify-center rounded-lg border border-dashed border-line-200 bg-fog-100 text-sm text-slate-600">
+          TODO: replace with a real {service.name.toLowerCase()} photo
+        </div>
       </Section>
 
       <Section tone="fog" className="py-8 sm:py-10">
