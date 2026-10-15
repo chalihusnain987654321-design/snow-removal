@@ -33,6 +33,7 @@ export const services: Service[] = [
     ],
     icon: "plow",
     audience: "residential",
+    photoCaption: "Pickup truck with a plow blade clearing fresh snow from a residential driveway",
   },
   {
     slug: "commercial-snow-plowing",
@@ -63,6 +64,7 @@ export const services: Service[] = [
     ],
     icon: "plow",
     audience: "commercial",
+    photoCaption: "Plow truck clearing drive lanes in a commercial parking lot during a snowstorm",
   },
   {
     slug: "sidewalk-walkway-clearing",
@@ -93,6 +95,7 @@ export const services: Service[] = [
     ],
     icon: "shovel",
     audience: "both",
+    photoCaption: "Worker shoveling a snow-covered sidewalk down to bare pavement",
   },
   {
     slug: "snow-blowing-services",
@@ -122,6 +125,7 @@ export const services: Service[] = [
     ],
     icon: "blower",
     audience: "both",
+    photoCaption: "Walk-behind snow blower clearing a narrow path between two houses",
   },
   {
     slug: "ice-management-salting-sanding-deicing",
@@ -151,6 +155,7 @@ export const services: Service[] = [
     ],
     icon: "salt",
     audience: "both",
+    photoCaption: "Spreader truck applying rock salt across an icy parking lot",
   },
   {
     slug: "anti-icing-brine-pretreatment",
@@ -180,6 +185,7 @@ export const services: Service[] = [
     ],
     icon: "brine",
     audience: "commercial",
+    photoCaption: "Truck spraying brine solution on pavement ahead of an incoming storm",
   },
   {
     slug: "roof-snow-removal",
@@ -209,6 +215,7 @@ export const services: Service[] = [
     ],
     icon: "roof",
     audience: "both",
+    photoCaption: "Crew removing a heavy snow load from a sloped roof edge",
   },
   {
     slug: "ice-dam-removal-prevention",
@@ -238,6 +245,7 @@ export const services: Service[] = [
     ],
     icon: "icicle",
     audience: "both",
+    photoCaption: "Icicles and an ice dam along a roof eave, with steam removal in progress",
   },
   {
     slug: "snow-hauling-relocation",
@@ -267,6 +275,7 @@ export const services: Service[] = [
     ],
     icon: "truck",
     audience: "commercial",
+    photoCaption: "Loader truck hauling a large snow pile away from a parking lot",
   },
   {
     slug: "seasonal-snow-removal-contracts",
@@ -296,6 +305,7 @@ export const services: Service[] = [
     ],
     icon: "contract",
     audience: "both",
+    photoCaption: "Plow truck parked outside a property serviced under a seasonal contract",
   },
   {
     slug: "24-7-emergency-snow-removal",
@@ -325,6 +335,7 @@ export const services: Service[] = [
     ],
     icon: "phone",
     audience: "both",
+    photoCaption: "Plow truck working a lot at night with headlights on during an active storm",
   },
   {
     slug: "hoa-property-management-snow-services",
@@ -354,6 +365,7 @@ export const services: Service[] = [
     ],
     icon: "hoa",
     audience: "commercial",
+    photoCaption: "Plow truck clearing a shared driveway in a townhome or HOA community",
   },
   {
     slug: "retail-office-medical-snow-services",
@@ -383,6 +395,7 @@ export const services: Service[] = [
     ],
     icon: "office",
     audience: "commercial",
+    photoCaption: "Cleared, salted walkway leading to a retail or office building entrance",
   },
   {
     slug: "municipal-institutional-snow-services",
@@ -412,6 +425,7 @@ export const services: Service[] = [
     ],
     icon: "school",
     audience: "commercial",
+    photoCaption: "Plow truck clearing a municipal lot or school parking area",
   },
 ];
 

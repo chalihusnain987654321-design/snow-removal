@@ -12,6 +12,7 @@ export type Service = {
   faqs: { question: string; answer: string }[];
   icon: ServiceIcon;
   audience: "residential" | "commercial" | "both";
+  photoCaption: string; // describes the real photo that belongs in this service's image placeholder, e.g. "Plow truck clearing a residential driveway during a snowstorm"
 };
 
 export type ServiceIcon =

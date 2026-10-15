@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { ServiceIconGlyph, CheckIcon } from "@/components/icons";
+import { ServiceIconGlyph, CheckIcon, CameraIcon } from "@/components/icons";
 import { JsonLd } from "@/components/JsonLd";
 import { serviceSchema } from "@/lib/schema";
 
@@ -79,8 +79,10 @@ export default async function ServiceDetailPage({
               ))}
             </div>
           </div>
-          <div className="flex aspect-video items-center justify-center rounded-lg border border-dashed border-line-200 bg-fog-100 text-sm text-slate-600">
-            TODO: replace with a real {service.name.toLowerCase()} photo
+          <div className="flex aspect-video flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-line-200 bg-fog-100 p-6 text-center">
+            <CameraIcon className="size-8 text-slate-400" />
+            <p className="font-semibold text-navy-950">Photo slot: {service.slug}.webp</p>
+            <p className="max-w-sm text-sm text-slate-600">{service.photoCaption}</p>
           </div>
         </div>
       </Section>
